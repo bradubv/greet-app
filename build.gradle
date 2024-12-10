@@ -1,0 +1,18 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    maven {
+        url = uri("../greet-lib/build/maven-repo") //Local repo
+    }
+    mavenCentral() //for other dependencies
+}
+
+dependencies {
+    implementation 'org.team7525:greet-lib:1.0.0'
+}
+
+application {
+    mainClass = 'org.team7525.GreetApp'
+}
