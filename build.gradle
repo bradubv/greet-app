@@ -4,7 +4,11 @@ plugins {
 
 repositories {
     maven {
-        url = uri("../greet-lib/build/maven-repo") //Local repo
+        url = uri("https://maven.pkg.github.com/bradubv/greet-lib")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("GIHUB_ACTOR")
+            password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+        }
     }
     mavenCentral() //for other dependencies
 }
